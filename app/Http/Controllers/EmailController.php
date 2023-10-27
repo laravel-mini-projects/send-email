@@ -9,7 +9,8 @@ class EmailController extends Controller
 {
     //
 
-    public function sendEmaill(){
+    public function sendEmail(){
+
         SendEmailJob::dispatch('knahar12bd@gmail.com');
 
         return "Mail has been sent.";
