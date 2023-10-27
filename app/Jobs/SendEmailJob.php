@@ -35,6 +35,11 @@ class SendEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->email->send(new SendEmail()));
+        $data = array('name'=>"Kamrun Nahar Ruma");
+        Mail::send(['text'=>'welcome'], $data, function($message) {
+            $message->to($this->email, 'Tutorials Point')->subject
+               ('Laravel Basic Testing Mail');
+            $message->from('knahar12bd@gmail.com','Kamrun Nahar Ruma');
+         });
     }
 }
